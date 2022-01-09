@@ -27,20 +27,15 @@ void Swap(int &m, int &n)
     n = tmp;
 }
 
-void selectionSort(int a[], int n)
+void bubbleSort(int a[], int n)
 {
-    for (int i = 0; i < n; ++i)
-    {        
-        // find the minimum element from position i to the end
-        int m = i;
-
-        for (int j = i + 1; j < n; ++j)
-        {
-            if (a[j] < a[m]) m = j; // m holds the min position
-        }
-
-        // swap a[i] and the minimum element
-        Swap(a[i], a[m]);
+    for (int i = 0; i < n - 1; ++i)
+    {       
+        for (int j = 0; j < n - 1 - i; ++j)
+        {            
+            if (a[j] > a[j + 1])
+                Swap(a[j], a[j + 1]);
+        }        
     }
 }
 
@@ -52,7 +47,7 @@ int main()
     Init(myArr, size);
     Show(myArr, size);
 
-    selectionSort(myArr, size);
+    bubbleSort(myArr, size);
     Show(myArr, size);
 
     return 0;
