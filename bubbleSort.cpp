@@ -39,6 +39,29 @@ void bubbleSort(int a[], int n)
     }
 }
 
+// optimize bubbleSort
+void bubbleSort2(int a[], int n)
+{
+    bool swapped;
+    for (int i = 0; i < n - 1; ++i)
+    {    
+        swapped = false; // no swap occur
+
+        for (int j = 0; j < n - 1 - i; ++j)
+        {            
+            if (a[j] > a[j + 1])
+            {
+                Swap(a[j], a[j + 1]);
+                swapped = true; // at least one swap occurs
+            }
+        }
+
+        // if no swap occur, then finish
+        if (!swapped)        
+            break;
+    }
+}
+
 int main()
 {
     int myArr[100];
@@ -47,7 +70,7 @@ int main()
     Init(myArr, size);
     Show(myArr, size);
 
-    bubbleSort(myArr, size);
+    bubbleSort2(myArr, size);
     Show(myArr, size);
 
     return 0;
